@@ -1,5 +1,7 @@
 Seeker: Job Finding and Administration App
+
 Link for Figma UI designing : https://www.figma.com/file/QN8mQFErFFQoi2OEWzSFKt/Seeker?type=design&node-id=0%3A1&mode=design&t=gX6Mr7ibcXKRd4yc-1
+
 
 Welcome to Seeker, a comprehensive job finding and administration application designed to simplify the job search process while providing robust administrative features. This project leverages the power of React Native for the frontend, Node.js for the backend, MongoDB for the database, and a JSON-based API with HTTP requests for seamless communication.
 
