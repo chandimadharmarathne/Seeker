@@ -1,7 +1,7 @@
 import React from 'react';
-import LoginPage from './src/screens/LoginPage';
+import RegisterPage from './src/screens/RegisterPage';
 
 const App = () => {
-  return <LoginPage />;
+  return <RegisterPage />;
 };
 export default App;

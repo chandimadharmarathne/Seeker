@@ -17,6 +17,20 @@ const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
+  const [name, setName] = useState('');
+
+  const handleNameChange = text => {
+    setName(text);
+  };
+
+  const handleSubmit = () => {
+    if (name.trim() === '') {
+      Alert.alert('Error', 'Please enter a valid name.');
+      return;
+    }
+    // Handle the submitted name (e.g., send it to an API, store it, etc.)
+    Alert.alert('Success', `Hello, ${name}!`);
+  };
 
   const handleEmailChange = text => {
     setEmail(text);
@@ -53,15 +67,25 @@ const Home = () => {
             <Text style={styles.blackText}>find your </Text>
             <Text style={styles.redText}>dream job</Text>
           </Text>
-          <Text style={styles.titleText}>Login to your Account</Text>
+          <Text style={styles.titleText}>Register new Account</Text>
         </View>
 
         <View style={styles.container}>
           <View style={styles.row1}>
-            <Image
-              source={require('../Assets/images/profile.png')}
-              style={[styles.icon, {opacity: 0.5}]}
+            <TextInput
+              style={styles.input}
+              placeholder="Name"
+              onChangeText={handleNameChange}
+              value={name}
             />
+          </View>
+        </View>
+        <View style={styles.imageContainer}>
+          <View style={styles.boxLine}></View>
+        </View>
+
+        <View style={styles.container}>
+          <View style={styles.row1}>
             <TextInput
               style={styles.input}
               placeholder="Email"
@@ -71,16 +95,12 @@ const Home = () => {
             />
           </View>
         </View>
-
         <View style={styles.imageContainer}>
           <View style={styles.boxLine}></View>
         </View>
+
         <View style={styles.container}>
           <View style={styles.row2}>
-            <Image
-              source={require('../Assets/images/key.png')}
-              style={[styles.icon, {opacity: 0.5}]}
-            />
             <TextInput
               style={styles.input}
               placeholder="Password"
@@ -90,26 +110,42 @@ const Home = () => {
               returnKeyType="go" // Set the return key type to "Go"
               onSubmitEditing={handleReturnPress} // Handle "Return" key press
             />
-            <Text style={styles.toggleButton} onPress={toggleShowPassword}>
-              {showPassword ? 'hide' : 'show'}
-            </Text>
+            
+          </View>
+        </View>
+        <View style={styles.imageContainer}>
+          <View style={styles.boxLine}></View>
+        </View>
+
+        <View style={styles.container}>
+          <View style={styles.row2}>
+            <TextInput
+              style={styles.input}
+              placeholder="Confirm Password"
+              secureTextEntry={!showPassword} // Mask the input text
+              onChangeText={handlePasswordChange}
+              value={password}
+              returnKeyType="go" // Set the return key type to "Go"
+              onSubmitEditing={handleReturnPress} // Handle "Return" key press
+            />
+            
           </View>
         </View>
 
         <View style={styles.imageContainer}>
           <View style={styles.boxLine}></View>
-          <Text style={styles.fogtPaswd}>Forgot password</Text>
         </View>
+
         <View style={styles.containerCenter}>
-          <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
-            <Text style={styles.loginButtonText}>Login</Text>
+          <TouchableOpacity style={styles.registerButton} onPress={handleLogin}>
+            <Text style={styles.loginButtonText}>Register</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.containerCenter}>
           <View style={styles.row}>
-            <Text style={styles.registerTxt}>
-              <Text style={styles.blackText}>Don't have an Account? </Text>
-              <Text style={styles.blueText}>Register now</Text>
+            <Text style={styles.loginText}>
+              <Text style={styles.blackText}>Already have an Account? </Text>
+              <Text style={styles.blueText}>Login now</Text>
             </Text>
           </View>
         </View>
@@ -175,6 +211,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: 'Inter-Medium',
   },
+
   boxLine: {
     backgroundColor: '#0228f3',
     height: 1,
@@ -191,19 +228,21 @@ const styles = StyleSheet.create({
   row1: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 62,
+    marginTop: 35,
+    marginLeft: 45,
   },
   row2: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 42,
+    marginTop: 35,
+    marginLeft: 45,
   },
   row: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   toggleButton: {
-    marginLeft: 12,
+    marginLeft: 45,
   },
   toggleButtonText: {
     color: 'blue',
@@ -217,14 +256,14 @@ const styles = StyleSheet.create({
     color: 'black',
     marginLeft: 190,
   },
-  loginButton: {
+  registerButton: {
     backgroundColor: '#0228f3b0',
     paddingVertical: 5,
     paddingHorizontal: 30,
     borderRadius: 2,
     width: 296,
     height: 40,
-    marginTop: 70,
+    marginTop: 30,
   },
   loginButtonText: {
     color: 'white',
@@ -232,12 +271,12 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
   },
-  registerTxt: {
+  loginText: {
     textAlign: 'center',
     fontSize: 17,
     fontStyle: 'normal',
     fontWeight: '400',
-    marginTop: 80,
+    marginTop: 20,
     fontFamily: 'Inter-Regular',
   },
 });
