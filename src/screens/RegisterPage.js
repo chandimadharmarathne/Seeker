@@ -11,25 +11,17 @@ import {
   Keyboard,
   Button,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 
 const Home = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [showPassword, setShowPassword] = useState(false);
+  const [confirmPassword, setConfirmPassword] = useState('');
   const [name, setName] = useState('');
 
   const handleNameChange = text => {
     setName(text);
-  };
-
-  const handleSubmit = () => {
-    if (name.trim() === '') {
-      Alert.alert('Error', 'Please enter a valid name.');
-      return;
-    }
-    // Handle the submitted name (e.g., send it to an API, store it, etc.)
-    Alert.alert('Success', `Hello, ${name}!`);
   };
 
   const handleEmailChange = text => {
@@ -39,20 +31,40 @@ const Home = () => {
   const handlePasswordChange = text => {
     setPassword(text);
   };
-  const toggleShowPassword = () => {
-    // Toggle the showPassword state to switch between showing and hiding the password
-    setShowPassword(!showPassword);
+
+  const handleConfirmPasswordChange = text => {
+    setConfirmPassword(text);
   };
+
   const handleReturnPress = () => {
     // Trigger an action when the "Return" key is pressed (e.g., login)
     Keyboard.dismiss(); // Hide the keyboard
     // Perform login or password-related actions using the password state
     console.log('Password:', password); // Log the password (for demonstration purposes)
   };
-  const handleLogin = () => {
-    // Perform login logic here using the email and password states
-    console.log('Email:', email);
-    console.log('Password:', password);
+
+  const handleSubmit = () => {
+    if (name.trim() === '') {
+      Alert.alert('Error', 'Please enter a valid name.');
+      return;
+    }
+    if (email.trim() === '') {
+      Alert.alert('Error', 'Please enter a valid Email.');
+      return;
+    }
+
+    if (password.trim() === '' || confirmPassword.trim() === '') {
+      Alert.alert('Error', 'Please enter a password and confirm it.');
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      Alert.alert('Error', 'Passwords do not match.');
+      return;
+    }
+
+    // Handle the submitted password and confirm password (e.g., send to an API, store, etc.)
+    Alert.alert('Successfully registered!');
   };
 
   return (
@@ -104,13 +116,12 @@ const Home = () => {
             <TextInput
               style={styles.input}
               placeholder="Password"
-              secureTextEntry={!showPassword} // Mask the input text
+              secureTextEntry={true} // Mask the input text
               onChangeText={handlePasswordChange}
               value={password}
               returnKeyType="go" // Set the return key type to "Go"
               onSubmitEditing={handleReturnPress} // Handle "Return" key press
             />
-            
           </View>
         </View>
         <View style={styles.imageContainer}>
@@ -122,13 +133,12 @@ const Home = () => {
             <TextInput
               style={styles.input}
               placeholder="Confirm Password"
-              secureTextEntry={!showPassword} // Mask the input text
-              onChangeText={handlePasswordChange}
-              value={password}
+              secureTextEntry={true} // Mask the input text
+              onChangeText={handleConfirmPasswordChange}
+              value={confirmPassword}
               returnKeyType="go" // Set the return key type to "Go"
               onSubmitEditing={handleReturnPress} // Handle "Return" key press
             />
-            
           </View>
         </View>
 
@@ -137,7 +147,9 @@ const Home = () => {
         </View>
 
         <View style={styles.containerCenter}>
-          <TouchableOpacity style={styles.registerButton} onPress={handleLogin}>
+          <TouchableOpacity
+            style={styles.registerButton}
+            onPress={handleSubmit}>
             <Text style={styles.loginButtonText}>Register</Text>
           </TouchableOpacity>
         </View>
