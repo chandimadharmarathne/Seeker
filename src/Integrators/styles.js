@@ -208,7 +208,8 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginLeft: 1,
   },
-  
+
+ 
 });
 
 export default styles;

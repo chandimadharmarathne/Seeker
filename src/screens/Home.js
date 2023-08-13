@@ -8,15 +8,13 @@ import {
   Image,
   TextInput,
   useColorScheme,
-  Keyboard,
-  Button,
-  TouchableOpacity,
-  Alert,
+  
 } from 'react-native';
 import styles from '../Integrators/styles';
 import CardView from '../component/cardView';
 import JobCatogryView from '../component/JobCatogry';
 import JobCardView from '../component/JobCard';
+import BottomView from '../component/BottomView';
 
 const Home = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -123,9 +121,8 @@ const Home = () => {
         </View>
         <JobCatogryView />
         <JobCardView />
-
-        
       </ScrollView>
+      <BottomView />
     </SafeAreaView>
   );
 };

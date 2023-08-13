@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, ScrollView, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image} from 'react-native';
 const JobCard = () => {
   return (
     <View style={styles.row}>
