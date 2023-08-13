@@ -7,6 +7,7 @@ import {
   Text,
   Image,
   TextInput,
+  useColorScheme,
   Keyboard,
   Button,
   TouchableOpacity,
@@ -14,8 +15,11 @@ import {
 } from 'react-native';
 import styles from '../Integrators/styles';
 import CardView from '../component/cardView';
+import JobCatogryView from '../component/JobCatogry';
+import JobCardView from '../component/JobCard';
 
 const Home = () => {
+  const isDarkMode = useColorScheme() === 'dark';
   const [isFocused, setIsFocused] = useState(false);
   const [search, setSearch] = useState('');
 
@@ -96,18 +100,31 @@ const Home = () => {
                   </View>
                 </View>
                 <View style={styles.imageView}>
-                  
-                    <Image
-                      source={require('../Assets/images/team.png')} // Adjust the image path
-                      style={{width: '100%', height: '100%'}}
-                      resizeMode="cover"
-                    />
-                  
+                  <Image
+                    source={require('../Assets/images/team.png')} // Adjust the image path
+                    style={{width: '100%', height: '100%'}}
+                    resizeMode="cover"
+                  />
                 </View>
               </View>
             </CardView>
           </View>
         </View>
+
+        <View style={styles.containerCenter}>
+          <View style={styles.raw}>
+            <Text style={styles.recmndtnText}>
+              <Text style={styles.blackText}>Job Recommendation </Text>
+            </Text>
+            <Text style={styles.seeallText}>
+              <Text style={styles.blueText}>See all</Text>
+            </Text>
+          </View>
+        </View>
+        <JobCatogryView />
+        <JobCardView />
+
+        
       </ScrollView>
     </SafeAreaView>
   );
