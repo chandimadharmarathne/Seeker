@@ -70,6 +70,10 @@ const Home = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
+      <Image 
+          source={require('../Assets/images/backArrow.png')}
+            style = {styles.iconImage}
+          />
         <View style={styles.container}>
           <Image
             source={require('../Assets/images/logopng.png')}
@@ -186,7 +190,14 @@ const styles = StyleSheet.create({
     height: 136,
     resizeMode: 'contain',
     marginLeft: 130,
-    marginTop: 40,
+    marginTop: 30,
+  },
+  iconImage: {
+    width: 45,
+    height: 45,
+    resizeMode: 'contain',
+    marginLeft: 10,
+    marginTop: 10,
   },
 
   textOne: {
@@ -291,6 +302,7 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontFamily: 'Inter-Regular',
   },
+
 });
 
 export default Home;
