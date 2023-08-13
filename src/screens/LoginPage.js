@@ -13,7 +13,7 @@ import {
   TouchableOpacity,
 } from 'react-native';
 
-const Home = () => {
+const LoginPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -245,4 +245,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Home;
+export default LoginPage;

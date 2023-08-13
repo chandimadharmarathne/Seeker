@@ -1,7 +1,7 @@
 import React from 'react';
-import RegisterPage from './src/screens/RegisterPage';
+import VerificationRegister from './src/screens/VerificationRegister';
 
 const App = () => {
-  return <RegisterPage />;
+  return <VerificationRegister />;
 };
 export default App;

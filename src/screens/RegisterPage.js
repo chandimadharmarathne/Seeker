@@ -14,7 +14,7 @@ import {
   Alert,
 } from 'react-native';
 
-const Home = () => {
+const RegisterPage = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -305,4 +305,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default Home;
+export default RegisterPage;
