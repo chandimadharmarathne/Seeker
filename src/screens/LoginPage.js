@@ -44,10 +44,7 @@ const LoginPage = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
-        
-          
-
-          <View style={styles.container}>
+        <View style={styles.container}>
           <Image
             source={require('../Assets/images/logopng.png')}
             style={styles.image}

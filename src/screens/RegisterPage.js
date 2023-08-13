@@ -70,10 +70,10 @@ const RegisterPage = () => {
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
-      <Image 
+        <Image
           source={require('../Assets/images/backArrow.png')}
-            style = {styles.iconImage}
-          />
+          style={styles.iconImage}
+        />
         <View style={styles.container}>
           <Image
             source={require('../Assets/images/logopng.png')}
@@ -302,7 +302,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     fontFamily: 'Inter-Regular',
   },
-
 });
 
 export default RegisterPage;
