@@ -208,6 +208,74 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     marginLeft: 1,
   },
+  profileContainer:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems:'flex-start',
+    left:20,
+  },
+  profileName: {
+    textAlign: 'center',
+    fontSize: 24,
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    color: 'white',
+    
+  },
+  jobText:{
+    textAlign: 'center',
+    fontSize: 20,
+    fontStyle: 'normal',
+    fontWeight: '500',
+    color: 'white',
+    fontStyle:'italic'
+  },
+  boxLine4: {
+    backgroundColor: '#3C3232',
+    height: 2,
+    width:350,
+    marginTop:5,
+  },
+  LineContainer:{
+    flex: 1,
+    justifyContent: 'center',
+    alignItems:'center',
+    
+  },
+  contactText: {
+    textAlign: 'center',
+    fontSize: 22,
+    fontStyle: 'normal',
+    fontWeight: 'bold',
+    
+    
+  },
+  editContactTitleText:{
+    paddingTop:10,
+    textAlign: 'center',
+    fontSize: 20,
+    fontStyle: 'normal',
+    fontWeight: '600',
+    
+    
+  },
+  editContactText:{
+    textAlign: 'center',
+    fontSize: 18,
+    fontStyle: 'normal',
+    fontWeight: '400',
+    
+    
+  },
+  aboutText:{
+    textAlign: 'justify',
+    fontSize: 16,
+    fontStyle: 'normal',
+    fontWeight: '400',
+    marginLeft:0,
+    marginRight:38,
+    marginTop:10
+  },
 
  
 });

@@ -1,7 +1,7 @@
 import React from 'react';
-import Home from './src/screens/Home';
+import Profile from './src/screens/Profile';
 
 const App = () => {
-  return <Home />;
+  return <Profile />;
 };
 export default App;
