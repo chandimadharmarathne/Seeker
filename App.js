@@ -1,7 +1,7 @@
 import React from 'react';
-import Profile from './src/screens/Profile';
+import ChatPage from './src/screens/ChatPage';
 
 const App = () => {
-  return <Profile />;
+  return <ChatPage />;
 };
 export default App;
