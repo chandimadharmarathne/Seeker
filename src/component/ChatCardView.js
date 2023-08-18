@@ -1,9 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native';
 
-const ChatCardView = () => {
+const ChatCardView = ({navigation}) => {
+  const handleChat = () => {
+    // Perform login logic here using the email and password states
+    navigation.navigate('ChatScreen') 
+  };
   return (
+    <View style={styles.container}>
     <View style={styles.row}>
+    <TouchableOpacity onPress={handleChat}>
       <View style={styles.containerMain}>
         <View style={styles.boxLine3}>
           <View style={styles.raw}>
@@ -34,6 +40,7 @@ const ChatCardView = () => {
           </View>
         </View>
       </View>
+      </TouchableOpacity>
 
       <View style={styles.containerMain}>
         <View style={styles.boxLine3}>
@@ -116,7 +123,7 @@ const ChatCardView = () => {
         </View>
       </View>
 
-      
+      </View>
     </View>
   );
 };
@@ -127,6 +134,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  container: {
+    backgroundColor:'white'
+  },
 
   raw: {
     flexDirection: 'row',
@@ -134,10 +144,10 @@ const styles = StyleSheet.create({
   },
   boxLine2: {
     backgroundColor: '#A898C4',
-    height: 33,
-    width: 33,
+    height: 30,
+    width: 30,
     paddingLeft: 0,
-    paddingTop: 0,
+    marginTop: 10,
     borderRadius: 25,
     marginLeft: 20,
     alignItems: 'center',
@@ -166,7 +176,7 @@ const styles = StyleSheet.create({
   },
   companyText: {
     textAlign: 'center',
-    fontSize: 26,
+    fontSize: 22,
     fontStyle: 'normal',
     fontWeight: 'bold',
     paddingLeft: 5,
@@ -175,7 +185,7 @@ const styles = StyleSheet.create({
   },
   msgText: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
     fontStyle: 'normal',
     fontWeight: '700',
     paddingLeft: 5,
@@ -184,9 +194,9 @@ const styles = StyleSheet.create({
   },
   msgReadText: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '300',
     paddingLeft: 5,
     paddingTop: 0,
     color: 'black',
@@ -203,9 +213,9 @@ const styles = StyleSheet.create({
 
   timeText: {
     textAlign: 'center',
-    fontSize: 18,
+    fontSize: 16,
     fontStyle: 'normal',
-    fontWeight: '400',
+    fontWeight: '300',
     paddingLeft: 15,
     paddingTop: 18,
     color: 'black',
@@ -214,7 +224,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
     fontStyle: 'normal',
-    fontWeight: '800',
+    fontWeight: '00',
     color: 'white',
   },
 

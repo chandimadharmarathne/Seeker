@@ -276,7 +276,14 @@ const styles = StyleSheet.create({
     marginRight:38,
     marginTop:10
   },
-
+  sendButton: {
+    width: 30,
+    height: 30,
+    borderColor: 'black',
+    marginLeft: 10,
+    marginTop: 10,
+    marginBottom: 10,
+  },
  
 });
 

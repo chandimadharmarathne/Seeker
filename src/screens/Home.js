@@ -8,6 +8,7 @@ import {
   Image,
   TextInput,
   useColorScheme,
+  TouchableOpacity,
   
 } from 'react-native';
 import styles from '../Integrators/styles';
@@ -16,7 +17,7 @@ import JobCatogryView from '../component/JobCatogry';
 import JobCardView from '../component/JobCard';
 import BottomView from '../component/BottomView';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const [isFocused, setIsFocused] = useState(false);
   const [search, setSearch] = useState('');
@@ -28,12 +29,17 @@ const Home = () => {
   const handleSearchBarClick = () => {
     setIsFocused(true);
   };
+  const handleProfile = () => {
+    // Perform login logic here using the email and password states
+    navigation.navigate('Profile') 
+  };
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
         <View style={styles.containerProfile}>
           <View style={styles.raw}>
+          <TouchableOpacity onPress={handleProfile}>
             <View style={styles.profilePicture}>
               <Image
                 source={require('../Assets/images/pf.png')} // Adjust the image path
@@ -41,6 +47,7 @@ const Home = () => {
                 resizeMode="cover"
               />
             </View>
+            </TouchableOpacity>
             <View style={styles.column}>
               <Text style={styles.nameText}>Hello, Chandima!</Text>
               <Text style={styles.greeting}>Good Morning</Text>
@@ -122,7 +129,7 @@ const Home = () => {
         <JobCatogryView />
         <JobCardView />
       </ScrollView>
-      <BottomView />
+      <BottomView navigation={navigation}/>
     </SafeAreaView>
   );
 };

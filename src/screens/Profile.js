@@ -8,6 +8,7 @@ import {
   Image,
   TextInput,
   useColorScheme,
+  TouchableOpacity,
 } from 'react-native';
 import styles from '../Integrators/styles';
 import ProfileCard from '../component/ProfileCard';
@@ -16,7 +17,7 @@ import WorkExperience from '../component/WorkExperience';
 import ProfileBottomView from '../component/ProfileBottomView';
 import Education from '../component/Education';
 
-const Profile = () => {
+const Profile = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const [isFocused, setIsFocused] = useState(false);
   const [search, setSearch] = useState('');
@@ -29,14 +30,21 @@ const Profile = () => {
     setIsFocused(true);
   };
 
+  const handleProfile = () => {
+    // Perform login logic here using the email and password states
+    navigation.navigate('Profile') 
+  };
+
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
         <View style={[styles.containerMain, {paddingTop: 25}]}>
+        
           <ProfileCard
             profilePicture="URL_TO_PROFILE_PICTURE"
             backgroundPhoto="URL_TO_BACKGROUND_PHOTO"
           />
+           
         </View>
 
         <View style={styles.profileContainer}>
@@ -228,7 +236,7 @@ const Profile = () => {
         </View>
         
       </ScrollView>
-      <ProfileBottomView />
+      <ProfileBottomView  navigation={navigation} />
     </SafeAreaView>
   );
 };

@@ -1,4 +1,5 @@
 //@ts-nocheck
+import 'react-native-gesture-handler';
 import React, {useState} from 'react';
 import {
   SafeAreaView,
@@ -11,9 +12,10 @@ import {
   Keyboard,
   Button,
   TouchableOpacity,
+   Alert,
 } from 'react-native';
 
-const LoginPage = () => {
+const LoginPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
@@ -39,6 +41,25 @@ const LoginPage = () => {
     // Perform login logic here using the email and password states
     console.log('Email:', email);
     console.log('Password:', password);
+    
+    if (email.trim() === '') {
+      Alert.alert('Error', 'Please enter a valid Email.');
+      return;
+    }
+
+    if (password.trim() === '') {
+      Alert.alert('Error', 'Please enter a password.');
+      return;
+    }
+
+    Alert.alert('Successfully Login!');
+
+    navigation.navigate('Home') 
+  };
+
+  const handleRegister = () => {
+    // Perform login logic here using the email and password states
+    navigation.navigate('RegisterPage') 
   };
 
   return (
@@ -109,7 +130,9 @@ const LoginPage = () => {
           <View style={styles.row}>
             <Text style={styles.registerTxt}>
               <Text style={styles.blackText}>Don't have an Account? </Text>
+              <TouchableOpacity style={styles.blueText} onPress={handleRegister}>
               <Text style={styles.blueText}>Register now</Text>
+              </TouchableOpacity>
             </Text>
           </View>
         </View>

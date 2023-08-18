@@ -14,7 +14,7 @@ import {
   Alert,
 } from 'react-native';
 
-const RegisterPage = () => {
+const RegisterPage = ({navigation}) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -65,15 +65,19 @@ const RegisterPage = () => {
 
     // Handle the submitted password and confirm password (e.g., send to an API, store, etc.)
     Alert.alert('Successfully registered!');
+
+    navigation.navigate('Home') 
+  };
+
+  const handleLogin = () => {
+    // Perform login logic here using the email and password states
+    navigation.navigate('Login') 
   };
 
   return (
     <SafeAreaView style={{flex: 1}}>
       <ScrollView>
-        <Image
-          source={require('../Assets/images/backArrow.png')}
-          style={styles.iconImage}
-        />
+        
         <View style={styles.container}>
           <Image
             source={require('../Assets/images/logopng.png')}
@@ -88,7 +92,7 @@ const RegisterPage = () => {
 
         <View style={styles.container}>
           <View style={styles.row1}>
-            <TextInput
+            <TextInput 
               style={styles.input}
               placeholder="Name"
               onChangeText={handleNameChange}
@@ -161,7 +165,10 @@ const RegisterPage = () => {
           <View style={styles.row}>
             <Text style={styles.loginText}>
               <Text style={styles.blackText}>Already have an Account? </Text>
-              <Text style={styles.blueText}>Login now</Text>
+              <TouchableOpacity onPress={handleLogin}>
+              <Text style={[styles.blueText,{fontSize:16}]}>Login now</Text>
+              </TouchableOpacity>
+              
             </Text>
           </View>
         </View>

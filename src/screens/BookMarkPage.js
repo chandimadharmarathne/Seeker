@@ -13,7 +13,7 @@ import styles from '../Integrators/styles';
 import JobCardView from '../component/JobBookMarkedCard';
 import BookMarkBottomView from '../component/BookMarkBottomView';
 
-const BookMarkPage = () => {
+const BookMarkPage = ({navigation}) => {
   const isDarkMode = useColorScheme() === 'dark';
   const [isFocused, setIsFocused] = useState(false);
   const [search, setSearch] = useState('');
@@ -39,7 +39,7 @@ const BookMarkPage = () => {
         {/*
         */}
       </ScrollView>
-      <BookMarkBottomView />
+      <BookMarkBottomView navigation={navigation} />
     </SafeAreaView>
   );
 };
